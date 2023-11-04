@@ -1,0 +1,9 @@
+<?php
+/** @var \Perspective\TaskAllPrice\Block\Template $block */
+    $viewModel = $block->getViewModel();
+    echo 'Base price: '. round($viewModel->getBase(),2) . '<br>' ;
+    echo 'Final price: '. round($viewModel->getFinal(),2) . '<br>' ;
+    echo 'Special price: '. round($viewModel->getSpec(),2) . '<br>' ;
+    echo 'Tier price: '. round($viewModel->getTier(),2). '<br>' ;
+    echo 'Category Rule price: '. $viewModel->getCategoryRule() . '<br>' ;
+?>

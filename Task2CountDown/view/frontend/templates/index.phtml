@@ -1,0 +1,66 @@
+<?php
+/** @var \Perspective\Task2CountDown\Block\Template $block */
+
+
+$viewModel = $block->getViewModel();
+
+$rules = $viewModel->getCatalogRuleTime();
+
+$minAllTime = $viewModel->getMinEndTime();
+
+echo '<b>Дата окончания специальной цены: </b>' . $minAllTime . '<br>';
+
+foreach ($rules as $rule)
+{
+    $ruleId = $rule->getId();
+    $todate = $rule->getToDate();
+    print_r("<b>Дата окончания правила категории с ID $ruleId: </b>  $todate  <br>");
+}
+
+$early = reset($rules)->getToDate();
+
+echo '<b>Дата окончания которая заканчивается раньше: </b>' . $early. '<br>';
+
+if ($minAllTime > $early)
+{
+    $dataDif = $early;
+}
+else
+{
+    $dataDif = $minAllTime;
+}
+echo '<hr>';
+
+?>
+
+ <!-- <div style="display: inline-block; padding: 15px; font-size: 20px; border: 15px solid dodgerblue" id="getting-started"></div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'Perspective_Task2CountDown/js/jquery.countdown',
+    ],function ($){
+      $("#getting-started").countdown("<?= $minAllTime; ?>", function(event) {
+            $(this).text(
+                event.strftime('%D days %H:%M:%S')
+            );
+        });
+    })
+</script> -->
+
+<div style="display: inline-block; padding: 15px; font-size: 20px; border: 15px solid dodgerblue" id="getting-started"></div>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'Perspective_Task2CountDown/js/jquery.countdown',
+    ],function ($){
+      $("#getting-started").countdown("<?= $dataDif; ?>", function(event) {
+            $(this).text(
+                event.strftime('%D days %H:%M:%S')
+            );
+        });
+    })
+</script>
+<?php echo '<hr>'; 
+

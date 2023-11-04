@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="allprice" translate="label" sortOrder="1000">
+            <label>TaskAllPrice</label>
+        </tab>
+        <section id="allprice" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>TaskAllPrice</label>
+            <tab>allprice</tab>
+            <resource>Perspective_TaskAllPrice::allprice</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Prices Group</label>
+                <field id="enabled" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Functional</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>allprice/general/enabled</config_path>
+
+                </field>
+                <field id="base" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Base price show</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>perspective/general/base</config_path>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+
+                </field>
+                
+                <field id="final" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Final price show</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>perspective/general/final</config_path>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+
+                </field>
+                
+                <field id="special" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Special price show</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>perspective/general/special</config_path>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+
+                </field>
+
+                <field id="tier" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tier price show</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>perspective/general/tier</config_path>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+
+                </field>
+
+                <field id="catrul" type="select" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Catalog Rule price show</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>perspective/general/catrul</config_path>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>
